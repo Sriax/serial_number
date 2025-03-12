@@ -11,20 +11,32 @@
             background-color: #fff;
         }
         .buttons {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 10px;
             margin: 20px;
+            text-align: center;
         }
-        .brand-logo {
-            width: 100px;
-            height: auto;
-            cursor: pointer;
+        .buttons button {
             margin: 5px;
-            transition: transform 0.2s;
+            padding: 15px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 20px;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: background-color 0.3s, transform 0.2s;
         }
-        .brand-logo:hover {
+        .buttons button:nth-child(1) { background-color: #ff0000; color: #fff; } /* Rouge */
+        .buttons button:nth-child(2) { background-color: #cc0000; color: #fff; } /* Rouge foncé */
+        .buttons button:nth-child(3) { background-color: #990000; color: #fff; } /* Bordeaux */
+        .buttons button:nth-child(4) { background-color: #ff6600; color: #fff; } /* Orange */
+        .buttons button:nth-child(5) { background-color: #ffcc00; color: #000; } /* Jaune foncé */
+        .buttons button:nth-child(6) { background-color: #ffff00; color: #000; } /* Jaune */
+        .buttons button:nth-child(7) { background-color: #999900; color: #fff; } /* Vert olive */
+        .buttons button:nth-child(8) { background-color: #666600; color: #fff; } /* Kaki */
+        .buttons button:nth-child(9) { background-color: #000000; color: #fff; } /* Noir */
+        .buttons button:nth-child(10) { background-color: #333333; color: #fff; } /* Gris foncé */
+        .buttons button:nth-child(11) { background-color: #660000; color: #fff; } /* Marron foncé */
+        .buttons button:hover {
             transform: scale(1.1);
         }
         .image-container {
@@ -41,17 +53,17 @@
 <body>
     <h1>Sélectionnez une marque</h1>
     <div class="buttons">
-        <img src="images/Beko-Logo-2014-present.jpg" alt="Logo Beko" onclick="showImage('beko')" class="brand-logo">
-        <img src="images/brandt-fr-logo-vector.png" alt="Logo Brandt" onclick="showImage('brandt')" class="brand-logo">
-        <img src="images/bosch_neff_siemens.jpg" alt="Logo Bosch/Siemens" onclick="showImage('bsh')" class="brand-logo">
-        <img src="images/candy-logo-1.png" alt="Logo Candy" onclick="showImage('candy')" class="brand-logo">
-        <img src="images/Haier-Logo.wine.png" alt="Logo Haier" onclick="showImage('haier')" class="brand-logo">
-        <img src="images/indesit logo.jpg" alt="Logo Indesit" onclick="showImage('indesit')" class="brand-logo">
-        <img src="images/lg-logo.png" alt="Logo LG" onclick="showImage('lg')" class="brand-logo">
-        <img src="images/Miele.jpg" alt="Logo Miele" onclick="showImage('miele')" class="brand-logo">
-        <img src="images/655-proline_logo.jpg" alt="Logo Proline" onclick="showImage('proline')" class="brand-logo">
-        <img src="images/samsung.png" alt="Logo Samsung" onclick="showImage('samsung')" class="brand-logo">
-        <img src="images/indesit-and-whirlpool-logos.jpg" alt="Logo Whirlpool/Indesit" onclick="showImage('whirlpoolind')" class="brand-logo">
+        <button onclick="showImage('beko')">Beko</button>
+        <button onclick="showImage('brandt')">Brandt</button>
+        <button onclick="showImage('bsh')">Bosch/Siemens</button>
+        <button onclick="showImage('candy')">Candy</button>
+        <button onclick="showImage('haier')">Haier</button>
+        <button onclick="showImage('indesit')">Indesit</button>
+        <button onclick="showImage('lg')">LG</button>
+        <button onclick="showImage('miele')">Miele</button>
+        <button onclick="showImage('proline')">Proline</button>
+        <button onclick="showImage('samsung')">Samsung</button>
+        <button onclick="showImage('whirlpoolind')">Whirlpool/Indesit</button>
     </div>
     <div class="image-container">
         <img id="beko" src="images/Fiche Signalétique BEKO.PNG" alt="Fiche Signalétique Beko">
@@ -72,7 +84,7 @@
             document.querySelectorAll('.image-container img').forEach(img => {
                 img.style.display = 'none';
             });
-
+            
             // Afficher l'image sélectionnée
             document.getElementById(brand).style.display = 'block';
         }
