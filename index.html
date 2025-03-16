@@ -8,7 +8,7 @@
         body {
             font-family: Arial, sans-serif;
             text-align: center;
-            background-color: #f5f5f5;
+	    background-color: #f8fafd;
             margin: 0;
             padding: 20px;
         }
@@ -87,14 +87,52 @@
     </div>
     <script>
         function showImage(brand) {
-            // Cacher toutes les images
+// Cacher toutes les images
             document.querySelectorAll('.image-container img').forEach(img => {
                 img.style.display = 'none';
             });
-
-            // Afficher l'image sélectionnée
+// Afficher l'image sélectionnée
             document.getElementById(brand).style.display = 'block';
         }
-    </script>
+    function showImage(brand) {
+        var img = document.getElementById(brand);
+// Récupérer le style calculé pour savoir si l'image est affichée ou non
+        var currentDisplay = window.getComputedStyle(img).display;
+        
+        if (currentDisplay === 'block') {
+            // Si l'image est déjà affichée, on la cache
+            img.style.display = 'none';
+        } else {
+// Sinon, on cache toutes les images
+            document.querySelectorAll('.image-container img').forEach(function(image) {
+                image.style.display = 'none';
+            });
+// Et on affiche l'image sélectionnée
+            img.style.display = 'block';
+// Faire défiler la vue vers le conteneur de l'image
+	var imageContainer = document.querySelector('.image-container');
+	var imageContainerTop = imageContainer.getBoundingClientRect().top + window.scrollY;
+	window.scrollTo({ top: imageContainerTop, behavior: 'smooth' });
+        }
+    }
+(function() {
+    	var imageContainer = document.querySelector('.image-container');
+    	var buttons = document.querySelector('.buttons');
+    	var title = document.querySelector('h1');
+
+    function repositionImage() {
+        if (window.innerWidth < 768) {
+// Sur mobile : placer l'image directement sous le titre du menu.
+            title.insertAdjacentElement('afterend', imageContainer);
+        } else {
+// Sur grand écran, placer l'image sous le conteneur des menus.
+            buttons.insertAdjacentElement('afterend', imageContainer);
+        }
+    }
+
+    repositionImage();
+    window.addEventListener('resize', repositionImage);
+})();
+</script>
 </body>
 </html>
