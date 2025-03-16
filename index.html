@@ -94,27 +94,23 @@
 // Afficher l'image sélectionnée
             document.getElementById(brand).style.display = 'block';
         }
-    function showImage(brand) {
-        var img = document.getElementById(brand);
-// Récupérer le style calculé pour savoir si l'image est affichée ou non
-        var currentDisplay = window.getComputedStyle(img).display;
-        
-        if (currentDisplay === 'block') {
-            // Si l'image est déjà affichée, on la cache
-            img.style.display = 'none';
-        } else {
-// Sinon, on cache toutes les images
-            document.querySelectorAll('.image-container img').forEach(function(image) {
-                image.style.display = 'none';
-            });
-// Et on affiche l'image sélectionnée
-            img.style.display = 'block';
-// Faire défiler la vue vers le conteneur de l'image
-	var imageContainer = document.querySelector('.image-container');
-	var imageContainerTop = imageContainer.getBoundingClientRect().top + window.scrollY;
-	window.scrollTo({ top: imageContainerTop, behavior: 'smooth' });
-        }
+   	function showImage(brand) {
+    var img = document.getElementById(brand);
+    var currentDisplay = window.getComputedStyle(img).display;
+
+    if (currentDisplay === 'block') {
+        img.style.display = 'none';
+    } else {
+        document.querySelectorAll('.image-container img').forEach(function(image) {
+            image.style.display = 'none';
+        });
+        img.style.display = 'block';
+// Utiliser scrollIntoView à la place de scrollTo
+        var imageContainer = document.querySelector('.image-container');
+        imageContainer.scrollIntoView({ behavior: 'smooth' });
     }
+}
+
 (function() {
     	var imageContainer = document.querySelector('.image-container');
     	var buttons = document.querySelector('.buttons');
