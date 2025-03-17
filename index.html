@@ -1,12 +1,15 @@
 <!DOCTYPE html> 
 <html lang="fr">
 <head>
+  <!-- Autres balises meta et title -->
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Ton style CSS -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fiches Signalétiques</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Lato', sans-serif;
             text-align: center;
 	    background-color: #f8fafd;
             margin: 0;
@@ -55,6 +58,14 @@
                 transform: scale(1);
             }
         }
+footer {
+  position: fixed;
+  bottom: 20px;   /* 20px du bas de la fenêtre, ajustable */
+  left: 20px;     /* 20px de la gauche de la fenêtre, ajustable */
+  font-size: 0.8rem;
+  color: #666;
+  z-index: 1000;  /* pour que le footer soit au-dessus du contenu */
+}
     </style>
 </head>
 <body>
@@ -73,17 +84,17 @@
         <img src="images/whirlpool-indesit-logos.jpg" alt="Logo Whirlpool/Indesit" onclick="showImage('whirlpoolind')" class="brand-logo">
     </div>
     <div class="image-container">
-        <img id="beko" src="images/signaletique_beko.png" alt="Fiche Signalétique Beko">
-        <img id="brandt" src="images/signaletique_brandt.png" alt="Fiche Signalétique Brandt">
-        <img id="bsh" src="images/signaletique_bosch.png" alt="Fiche Signalétique BSH">
-        <img id="candy" src="images/signaletique_candy.png" alt="Fiche Signalétique Candy">
-        <img id="haier" src="images/signaletique_haier.png" alt="Fiche Signalétique Haier">
-        <img id="indesit" src="images/signaletique_indesit.png" alt="Fiche Signalétique Indesit">
-        <img id="lg" src="images/signaletique_lg.png" alt="Fiche Signalétique LG">
-        <img id="miele" src="images/signaletique_miele.png" alt="Fiche Signalétique Miele">
-        <img id="proline" src="images/signaletique_proline.png" alt="Fiche Signalétique Proline">
-        <img id="samsung" src="images/Fiche-Signalétique-Samsung.PNG" alt="Fiche Signalétique Samsung">
-        <img id="whirlpoolind" src="images/Fiche-Signalétique-Whirlpool-Indesit.PNG" alt="Fiche Signalétique Whirlpool/Indesit">
+        <img id="beko" src="images/signaletique_beko.png" alt="Fiche Signalétique Beko" loading="lazy">
+        <img id="brandt" src="images/signaletique_brandt.png" alt="Fiche Signalétique Brandt" loading="lazy">
+        <img id="bsh" src="images/signaletique_bosch.png" alt="Fiche Signalétique BSH" loading="lazy">
+        <img id="candy" src="images/signaletique_candy.png" alt="Fiche Signalétique Candy" loading="lazy">
+        <img id="haier" src="images/signaletique_haier.png" alt="Fiche Signalétique Haier" loading="lazy">
+        <img id="indesit" src="images/signaletique_indesit.png" alt="Fiche Signalétique Indesit" loading="lazy">
+        <img id="lg" src="images/signaletique_lg.png" alt="Fiche Signalétique LG" loading="lazy">
+        <img id="miele" src="images/signaletique_miele.png" alt="Fiche Signalétique Miele" loading="lazy">
+        <img id="proline" src="images/signaletique_proline.png" alt="Fiche Signalétique Proline" loading="lazy">
+        <img id="samsung" src="images/Fiche-Signalétique-Samsung.PNG" alt="Fiche Signalétique Samsung" loading="lazy">
+        <img id="whirlpoolind" src="images/Fiche-Signalétique-Whirlpool-Indesit.PNG" alt="Fiche Signalétique Whirlpool/Indesit" loading="lazy">
     </div>
     <script>
         function showImage(brand) {
@@ -123,5 +134,9 @@
     window.addEventListener('resize', repositionImage);
 })();
 </script>
+<footer>
+  <p>Créé par Antoine Folio – © 2025</p>
+</footer>
+
 </body>
 </html>
